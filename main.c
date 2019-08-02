@@ -17,10 +17,7 @@
 #include "lv_drivers/indev/mouse.h"
 #include "lv_drivers/indev/mousewheel.h"
 #include "lv_drivers/indev/keyboard.h"
-#include "lv_examples/lv_apps/demo/demo.h"
-#include "lv_examples/lv_apps/benchmark/benchmark.h"
-#include "lv_examples/lv_examples.h"
-
+#include "lv_app/opendeck_app.h"
 
 /*********************
  *      DEFINES
@@ -67,19 +64,7 @@ int main(int argc, char ** argv)
     /*Initialize the HAL (display, input devices, tick) for LittlevGL*/
     hal_init();
 
-    /*Create a demo*/
-    demo_create();
-
-    /*Try the benchmark to see how fast your GUI is*/
-    //    benchmark_create();
-
-    /*Check the themes too*/
-    //    lv_test_theme_1(lv_theme_night_init(15, NULL));
-
-    //    lv_test_theme_2();
-    /*Try the touchpad-less navigation (use the Tab and Arrow keys or the Mousewheel)*/
-    //    lv_test_group_1();
-
+    create_app();
 
     while(1) {
         /* Periodically call the lv_task handler.
